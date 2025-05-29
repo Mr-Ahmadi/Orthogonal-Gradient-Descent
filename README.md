@@ -1,6 +1,6 @@
 # Orthogonal Gradient Descent (OGD) for Continual Learning
 
-This repository explores the concept of Orthogonal Gradient Descent (OGD) as a method to mitigate catastrophic forgetting in deep neural networks during continual learning scenarios. Catastrophic forgetting is a significant challenge in artificial intelligence systems, where models tend to forget previously acquired knowledge when subsequently trained on new tasks[cite: 1, 2]. OGD aims to address this by carefully controlling the direction of gradient updates in the parameter space, ensuring that the network's performance on prior tasks remains largely unaffected while still allowing for effective learning of new tasks[cite: 1, 3].
+This repository explores the concept of Orthogonal Gradient Descent (OGD) as a method to mitigate catastrophic forgetting in deep neural networks during continual learning scenarios. Catastrophic forgetting is a significant challenge in artificial intelligence systems, where models tend to forget previously acquired knowledge when subsequently trained on new tasks. OGD aims to address this by carefully controlling the direction of gradient updates in the parameter space, ensuring that the network's performance on prior tasks remains largely unaffected while still allowing for effective learning of new tasks.
 
 ## Project Structure
 
@@ -22,11 +22,11 @@ The repository is organized into two main directories:
 
 ### Catastrophic Forgetting
 
-Deep neural networks often suffer from catastrophic forgetting when trained sequentially on new tasks. This phenomenon leads to a drastic decrease in performance on previously learned tasks after the model is updated with new data[cite: 1, 2]. For instance, a model trained to classify digits 0-4 will lose its ability to do so after being trained on digits 5-9 using a simple training approach[cite: 2, 4].
+Deep neural networks often suffer from catastrophic forgetting when trained sequentially on new tasks. This phenomenon leads to a drastic decrease in performance on previously learned tasks after the model is updated with new data. For instance, a model trained to classify digits 0-4 will lose its ability to do so after being trained on digits 5-9 using a simple training approach.
 
 ### Orthogonal Gradient Descent (OGD)
 
-OGD is a method introduced to combat catastrophic forgetting. It works by projecting the gradients from new tasks onto a subspace that ensures the neural network's output on previous tasks remains unchanged[cite: 1, 3]. This projection allows the model to learn new tasks effectively while retaining knowledge from prior tasks, without the need to store old data, which can raise privacy concerns[cite: 1].
+OGD is a method introduced to combat catastrophic forgetting. It works by projecting the gradients from new tasks onto a subspace that ensures the neural network's output on previous tasks remains unchanged. This projection allows the model to learn new tasks effectively while retaining knowledge from prior tasks, without the need to store old data, which can raise privacy concerns.
 
 ## Experiments and Results
 
@@ -41,8 +41,8 @@ In an experiment detailed in `mini-report.pdf` and `model-0.ipynb`, a simple neu
 
 **Results with Simple Training (without OGD):**
 
-  * After training on Task A, the model achieved a test accuracy of 97.55% on Task A[cite: 4].
-  * However, after training on Task B, the test accuracy on Task A dropped significantly to 0%[cite: 4]. This clearly illustrates catastrophic forgetting[cite: 2].
+  * After training on Task A, the model achieved a test accuracy of 97.55% on Task A.
+  * However, after training on Task B, the test accuracy on Task A dropped significantly to 0%. This clearly illustrates catastrophic forgetting.
 
 **Results with OGD:**
 While `model-0.ipynb` specifically shows the catastrophic forgetting without OGD, the `report.pdf` discusses OGD's effectiveness in preserving knowledge. The `model-1.ipynb` further demonstrates OGD's advantage in a regression context.
@@ -53,8 +53,8 @@ While `model-0.ipynb` specifically shows the catastrophic forgetting without OGD
 
 **Comparative Results:**
 
-  * **Standard SGD:** When training on Task 2 (similar) after Task 1, the MSE on Task 1 increased from 0.000183 to 0.362654. After training on Task 3 (different), the MSE on Task 1 further rose to 1.026326[cite: 6]. This indicates a significant loss of performance on Task 1.
-  * **OGD:** With OGD, the MSE on Task 1 after training on Task 2 was 0.099431, and after training on Task 3, it was 0.146633[cite: 6]. This demonstrates that OGD considerably limits the increase in MSE on previous tasks, effectively preserving learned knowledge[cite: 6].
+  * **Standard SGD:** When training on Task 2 (similar) after Task 1, the MSE on Task 1 increased from 0.000183 to 0.362654. After training on Task 3 (different), the MSE on Task 1 further rose to 1.026326. This indicates a significant loss of performance on Task 1.
+  * **OGD:** With OGD, the MSE on Task 1 after training on Task 2 was 0.099431, and after training on Task 3, it was 0.146633. This demonstrates that OGD considerably limits the increase in MSE on previous tasks, effectively preserving learned knowledge.
 
 ## Usage
 
